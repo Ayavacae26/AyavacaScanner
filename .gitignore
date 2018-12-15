@@ -3,3 +3,6 @@
 
 # Object Files
 *.class
+
+# jflex
+*.jflex1.7.0.jar
