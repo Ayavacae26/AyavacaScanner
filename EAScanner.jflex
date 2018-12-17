@@ -22,7 +22,9 @@ letter = [A-Za-z]
 digit =[0-9]
 number = {digit}+
 whitespace    = [ \n\t\r]
-id = 
+id = {letter}{digit}|{letter}*
+symbol = [;,:\.\[\]\(\)+-\=<*/]|:=|<=|>=|<>
+
 
 %%
 /* --------Lexical Rules------ */
