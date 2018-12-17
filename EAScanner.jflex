@@ -35,6 +35,35 @@ symbol = [;,:\.\[\]\(\)+-\=<*/]|:=|<=|>=|<>
              return( yytext());
             }*/
             
+{letter}  	{
+             /** Print out the letter that was found. */
+             System.out.println("Found a letter: " + yytext());
+             return( yytext());
+            }
+            
+{digit}  	{
+             /** Print out the digit that was found. */
+             System.out.println("Found a digit: " + yytext());
+             return( yytext());
+            }
+
+{number}  	{
+             /** Print out the number that was found. */
+             System.out.println("Found a number: " + yytext());
+             return( yytext());
+            }
+            
+{id}  	{
+             /** Print out the id that was found. */
+             System.out.println("Found a id: " + yytext());
+             return( yytext());
+            }
+{symbol}  	{
+             /** Print out the symbol that was found. */
+             System.out.println("Found a symbol: " + yytext());
+             return( yytext());
+            }
+            
 {whitespace}  {  /* Ignore Whitespace */ 
                  return "";
               } 
