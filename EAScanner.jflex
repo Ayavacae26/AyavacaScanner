@@ -13,25 +13,29 @@
 %eofval{
   return null;
 %eofval}
-/* Patterns */
 
-other         = .
-letter        = [A-Za-z]
-word          = {letter}+
-whitespace    = [ \n\t]
+/* -----Patterns------ */
+
+other  = .
+letter = [A-Za-z]
+//word = {letter}+
+digit =[0-9]
+number = {digit}+
+whitespace    = [ \n\t\r]
+id = 
 
 %%
-/* Lexical Rules */
+/* --------Lexical Rules------ */
 
-{word}     {
+/*{word}     {
              /** Print out the word that was found. */
              System.out.println("Found a word: " + yytext());
              return( yytext());
-            }
+            }*/
             
 {whitespace}  {  /* Ignore Whitespace */ 
                  return "";
-              }
+              } 
 
 {other}    { 
              System.out.println("Illegal char: '" + yytext() + "' found.");
