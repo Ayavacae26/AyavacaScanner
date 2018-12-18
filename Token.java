@@ -29,12 +29,9 @@ public class Token {
 	}
 	
 	//ToString to reterive the information
-	
-	
-
-
-
-
+	public String toString(){
+		return("Token Type: " + tokentype + " lexeme: " + lexeme);
+	}
 }
 
 
