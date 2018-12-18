@@ -44,13 +44,8 @@ Public enum TokenType {
 		ASSIGN,
 		GUILLEMENTS,
 		
+	//Identifiers
+		ID,
+		NUMBER,
 		
-		
-
-
-
-
-
-
-
 }
