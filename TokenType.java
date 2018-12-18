@@ -17,7 +17,14 @@ Public enum TokenType {
 		NOT,
 		OF,
 		OR,
-		P
+		PROCEDURE,
+		REAL,
+		THEN,
+		VAR,
+		WHILE,
+		
+	//SYMBOLS
+		
 
 
 
