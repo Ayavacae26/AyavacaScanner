@@ -26,25 +26,24 @@ public class lookUpTable extends HashMap<String, TokenType{
 			this.put("WHILE", TokenType.WHILE);
 		
 			//SYMBOLS
-			SEMICOLON,
-			COMMA,
-			COLON,
-			PERIOD,
-			LEFTBRACKET,
-			RIGHTBRACKET,
-			LEFTPARENTHESES,
-			RIGHTPARENTHESES,
-			PLUS,
-			MINUS,
-			EQUALS,
-			LESS_THAN,
-			LESS_THAN_OR_EQUAL,
-			GREATER_THAN,
-			GREATER_THAN_OR_EQUAL,
-			ASTERISK,
-			SLASH,
-			ASSIGN,
-			GUILLEMENTS,
-		
+			this.put(";", TokenType.SEMICOLON);
+			this.put("," , TokenType.COMMA);
+			this.put(":", TokenType.COLON);
+			this.put(".", TokenType.PERIOD);
+			this.put("{", TokenType.LEFTBRACKET);
+			this.put("}", TokenType.RIGHTBRACKET);
+			this.put("(", TokenType.LEFTPARENTHESES);
+			this.put(")", TokenType.RIGHTPARENTHESES);
+			this.put("+", TokenType.PLUS);
+			this.put("-", TokenType.MINUS);
+			this.put("=", TokenType.EQUALS);
+			this.put("<", TokenType.LESS_THAN);
+			this.put("<=", TokenType.LESS_THAN_OR_EQUAL);
+			this.put(">", TokenType.GREATER_THAN);
+			this.put(">=", TokenType.GREATER_THAN_OR_EQUAL);
+			this.put("*",  TokenType.ASTERISK);
+			this.put("/", TokenType.SLASH);
+			this.put(":=", TokenType.ASSIGN);
+			this.put("<>", TokenType.GUILLEMENTS);
 	}
 }
