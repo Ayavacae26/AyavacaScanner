@@ -27,11 +27,11 @@ public class lookUpTable extends HashMap<String, TokenType>{
 		
 			//SYMBOLS
 			this.put(";", TokenType.SEMICOLON);
-			this.put("," , TokenType.COMMA);
+			this.put(",", TokenType.COMMA);
 			this.put(":", TokenType.COLON);
 			this.put(".", TokenType.PERIOD);
-			this.put("{", TokenType.LEFTBRACKET);
-			this.put("}", TokenType.RIGHTBRACKET);
+			this.put("[", TokenType.LEFTBRACKET);
+			this.put("]", TokenType.RIGHTBRACKET);
 			this.put("(", TokenType.LEFTPARENTHESES);
 			this.put(")", TokenType.RIGHTPARENTHESES);
 			this.put("+", TokenType.PLUS);

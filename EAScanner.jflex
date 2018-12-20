@@ -31,7 +31,7 @@ digit =[0-9]
 number = {digit}+
 whitespace    = [ \n\t\r]
 id = {letter}{digit}|{letter}*
-symbol = [;,:\.\[\]\(\)+-\=<*/]|:=|<=|>=|<>
+symbol = [;,:\.\[\]\(\)+-\=<>*/]|:=|<=|>=|<>
 
 
 %%
