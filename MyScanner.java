@@ -558,7 +558,7 @@ lookUpTable m = new lookUpTable();
                 t = TokenType.ID;
              }
             Token token = new Token (l, t);
-            System.out.println("KeyWord  " + token);
+            System.out.println("KeyWord found:  " + token);
             return token;
             } 
             // fall through
@@ -592,7 +592,7 @@ lookUpTable m = new lookUpTable();
             String l = yytext();
             TokenType t = m.get(l);
             Token token = new Token (l, t);
-            System.out.println("KeyWord  " + token);
+            System.out.println("Symbol found:  " + token);
             return token;
             } 
             // fall through
