@@ -1,5 +1,4 @@
-
-Public enum TokenType {
+public enum TokenType {
 
 	//Keywords
 		AND,

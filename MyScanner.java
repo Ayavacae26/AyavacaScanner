@@ -230,7 +230,7 @@ class MyScanner {
   private int zzFinalHighSurrogate = 0;
 
   /* user code: */
-LookupTable m = new LookupTable();
+lookUpTable m = new lookUpTable();
 
 
   /**
@@ -571,7 +571,7 @@ LookupTable m = new LookupTable();
           case 7: break;
           case 3: 
             { /* Ignore Whitespace */ 
-                 return "";
+                 //return "";
             } 
             // fall through
           case 8: break;

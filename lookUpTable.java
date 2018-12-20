@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 
-public class lookUpTable extends HashMap<String, TokenType{
+public class lookUpTable extends HashMap<String, TokenType>{
 	public lookUpTable(){
 		HashMap<String, TokenType> Map = new HashMap<String, TokenType>();
 			this.put("AND", TokenType.AND);

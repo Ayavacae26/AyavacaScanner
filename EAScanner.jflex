@@ -11,7 +11,7 @@
 %type Token            /* Defines the return TokenType of the scanning function*/
 
 %{
-LookupTable m = new LookupTable();
+lookUpTable m = new lookUpTable();
 %}
 
 %class  MyScanner   /* Names the produced java file */
@@ -90,7 +90,7 @@ symbol = [;,:\.\[\]\(\)+-\=<*/]|:=|<=|>=|<>
             }
             
 {whitespace}  {  /* Ignore Whitespace */ 
-                 return "";
+                 //return "";
               } 
 
 {other}    { 
