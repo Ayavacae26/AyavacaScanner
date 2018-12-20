@@ -6,10 +6,18 @@
 /* Declarations */
 
 %%
-%standalone         /* The produced java file has a main */
+//%standalone         /* The produced java file has a main */
+
+%type Token            /* Defines the return TokenType of the scanning function*/
+
+%{
+LookupTable m = new LookupTable();
+%}
+
 %class  MyScanner   /* Names the produced java file */
 %function nextToken /* Renames the yylex() function */
-%type   String      /* Defines the return type of the scanning function */
+//%type   String      /* Defines the return type of the scanning function */\
+
 %eofval{
   return null;
 %eofval}
@@ -35,33 +43,50 @@ symbol = [;,:\.\[\]\(\)+-\=<*/]|:=|<=|>=|<>
              return( yytext());
             }*/
             
-{letter}  	{
+/*{letter}  	{
              /** Print out the letter that was found. */
              System.out.println("Found a letter: " + yytext());
              return( yytext());
-            }
+            }*/
             
-{digit}  	{
+/*{digit}  	{
              /** Print out the digit that was found. */
              System.out.println("Found a digit: " + yytext());
              return( yytext());
-            }
+            }*/
 
 {number}  	{
              /** Print out the number that was found. */
-             System.out.println("Found a number: " + yytext());
-             return( yytext());
+             //System.out.println("Found a number: " + yytext());
+             //return( yytext());
+            Token token = new Token (yytext(), TokenType.NUMBER);
+            System.out.println("Found a number: " + yytext());
+			return token;
             }
             
 {id}  	{
              /** Print out the id that was found. */
-             System.out.println("Found a id: " + yytext());
-             return( yytext());
+             //System.out.println("Found a id: " + yytext());
+             //return( yytext());
+            String l = yytext();
+            TokenType t = m.get(l);
+            if(t == null){
+                t = TokenType.ID;
+             }
+            Token token = new Token (l, t);
+            System.out.println("KeyWord  " + token);
+            return token;
             }
+            
 {symbol}  	{
              /** Print out the symbol that was found. */
-             System.out.println("Found a symbol: " + yytext());
-             return( yytext());
+             //System.out.println("Found a symbol: " + yytext());
+             //return( yytext());
+            String l = yytext();
+            TokenType t = m.get(l);
+            Token token = new Token (l, t);
+            System.out.println("KeyWord  " + token);
+            return token;
             }
             
 {whitespace}  {  /* Ignore Whitespace */ 
@@ -70,5 +95,5 @@ symbol = [;,:\.\[\]\(\)+-\=<*/]|:=|<=|>=|<>
 
 {other}    { 
              System.out.println("Illegal char: '" + yytext() + "' found.");
-             return "";
+             //return "";
            }
