@@ -53,11 +53,10 @@ class MyScanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\1\1\2\1\3\1\4\1\5\1\6\3\7\1\2"+
-    "\2\1\1\10";
+    "\1\1\1\2\1\3\1\1\1\4\3\5\2\1";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[13];
+    int [] result = new int[10];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -82,11 +81,11 @@ class MyScanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\12\0\12\0\12\0\24\0\36\0\12\0\50"+
-    "\0\62\0\50\0\74\0\12\0\36";
+    "\0\0\0\12\0\12\0\24\0\36\0\12\0\50\0\62"+
+    "\0\74\0\12";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[13];
+    int [] result = new int[10];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -109,9 +108,9 @@ class MyScanner {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\7"+
-    "\1\11\1\12\15\0\1\13\1\14\11\0\1\15\14\0"+
-    "\1\7\11\0\1\7\1\0\1\7\3\0\1\13\6\0";
+    "\1\2\1\3\1\0\1\4\1\5\1\6\1\7\1\6"+
+    "\1\10\1\7\15\0\1\11\1\12\11\0\1\5\14\0"+
+    "\1\6\11\0\1\6\1\0\1\6\3\0\1\11\6\0";
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[70];
@@ -152,10 +151,10 @@ class MyScanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\1\3\11\2\1\1\11\4\1\1\11\1\1";
+    "\1\1\2\11\2\1\1\11\3\1\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[13];
+    int [] result = new int[10];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -229,6 +228,9 @@ class MyScanner {
    * otherwise, it will have a value of 0.
    */
   private int zzFinalHighSurrogate = 0;
+
+  /* user code: */
+lookUpTable m = new lookUpTable();
 
 
   /**
@@ -461,7 +463,7 @@ class MyScanner {
    * @return      the next token
    * @exception   java.io.IOException  if any I/O-Error occurs
    */
-  public String nextToken() throws java.io.IOException {
+  public Token nextToken() throws java.io.IOException {
     int zzInput;
     int zzAction;
 
@@ -548,107 +550,55 @@ class MyScanner {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
             { /** Print out the id that was found. */
-             System.out.println("Found a id: " + yytext());
-             return( yytext());
+             //System.out.println("Found a id: " + yytext());
+             //return( yytext());
+            String l = yytext();
+            TokenType t = m.get(l);
+            if(t == null){
+                t = TokenType.ID;
+             }
+            Token token = new Token (l, t);
+            System.out.println("KeyWord found:  " + token);
+            return token;
+            } 
+            // fall through
+          case 6: break;
+          case 2: 
+            { System.out.println("Illegal char: '" + yytext() + "' found.");
+             //return "";
+            } 
+            // fall through
+          case 7: break;
+          case 3: 
+            { /* Ignore Whitespace */ 
+                 //return "";
+            } 
+            // fall through
+          case 8: break;
+          case 4: 
+            { /** Print out the number that was found. */
+             //System.out.println("Found a number: " + yytext());
+             //return( yytext());
+            Token token = new Token (yytext(), TokenType.NUMBER);
+            System.out.println("Found a number: " + yytext());
+			return token;
             } 
             // fall through
           case 9: break;
-          case 2: 
-            { System.out.println("Illegal char: '" + yytext() + "' found.");
-             return "";
+          case 5: 
+            { /** Print out the symbol that was found. */
+             //System.out.println("Found a symbol: " + yytext());
+             //return( yytext());
+            String l = yytext();
+            TokenType t = m.get(l);
+            Token token = new Token (l, t);
+            System.out.println("Symbol found:  " + token);
+            return token;
             } 
             // fall through
           case 10: break;
-          case 3: 
-            { /* Ignore Whitespace */ 
-                 return "";
-            } 
-            // fall through
-          case 11: break;
-          case 4: 
-            { System.out.print(yytext());
-            } 
-            // fall through
-          case 12: break;
-          case 5: 
-            { /** Print out the letter that was found. */
-             System.out.println("Found a letter: " + yytext());
-             return( yytext());
-            } 
-            // fall through
-          case 13: break;
-          case 6: 
-            { /** Print out the digit that was found. */
-             System.out.println("Found a digit: " + yytext());
-             return( yytext());
-            } 
-            // fall through
-          case 14: break;
-          case 7: 
-            { /** Print out the symbol that was found. */
-             System.out.println("Found a symbol: " + yytext());
-             return( yytext());
-            } 
-            // fall through
-          case 15: break;
-          case 8: 
-            { /** Print out the number that was found. */
-             System.out.println("Found a number: " + yytext());
-             return( yytext());
-            } 
-            // fall through
-          case 16: break;
           default:
             zzScanError(ZZ_NO_MATCH);
-        }
-      }
-    }
-  }
-
-  /**
-   * Runs the scanner on input files.
-   *
-   * This is a standalone scanner, it will print any unmatched
-   * text to System.out unchanged.
-   *
-   * @param argv   the command line, contains the filenames to run
-   *               the scanner on.
-   */
-  public static void main(String argv[]) {
-    if (argv.length == 0) {
-      System.out.println("Usage : java MyScanner [ --encoding <name> ] <inputfile(s)>");
-    }
-    else {
-      int firstFilePos = 0;
-      String encodingName = "UTF-8";
-      if (argv[0].equals("--encoding")) {
-        firstFilePos = 2;
-        encodingName = argv[1];
-        try {
-          java.nio.charset.Charset.forName(encodingName); // Side-effect: is encodingName valid? 
-        } catch (Exception e) {
-          System.out.println("Invalid encoding '" + encodingName + "'");
-          return;
-        }
-      }
-      for (int i = firstFilePos; i < argv.length; i++) {
-        MyScanner scanner = null;
-        try {
-          java.io.FileInputStream stream = new java.io.FileInputStream(argv[i]);
-          java.io.Reader reader = new java.io.InputStreamReader(stream, encodingName);
-          scanner = new MyScanner(reader);
-          while ( !scanner.zzAtEOF ) scanner.nextToken();
-        }
-        catch (java.io.FileNotFoundException e) {
-          System.out.println("File not found : \""+argv[i]+"\"");
-        }
-        catch (java.io.IOException e) {
-          System.out.println("IO error scanning file \""+argv[i]+"\"");
-          System.out.println(e);
-        }
-        catch (Exception e) {
-          System.out.println("Unexpected exception:");
-          e.printStackTrace();
         }
       }
     }
